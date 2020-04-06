@@ -14,6 +14,12 @@ public class TotalDto<T> {
 	
 	private List<T> data = null ; 
 
+	public void settingTotalCount() {
+		if ( data != null ) {
+			totalCount = data.size();
+		}
+	}
+	
 	public Integer getTotalCount() {
 		return totalCount;
 	}

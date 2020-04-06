@@ -1,10 +1,5 @@
 package information.client.api.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,12 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import information.client.api.domain.Genre;
 import information.client.api.domain.Program;
-import information.client.api.domain.ProgramGenre;
-import information.client.api.domain.ProgramProduct;
 import information.client.api.dto.ProgramDto;
-import information.client.api.dto.ProgramProductDto;
 import information.client.api.dto.TotalDto;
 import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
@@ -37,19 +28,11 @@ public class ProgramController {
 	@Resource
 	private ProgramService programService ; 
 	
-	@RequestMapping(value = "/listAll" , method = RequestMethod.GET)
+	@RequestMapping(value = "/information/listAll" , method = RequestMethod.GET)
 	@ResponseBody
 	public TotalDto<ProgramDto> listAll(HttpServletRequest request , HttpServletResponse response){
-		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
-		
-		List<Program> list = programService.findAll();
-		
-		if ( list != null ) {
-			for ( Program p : list ) { 
-				result.add(domainToDto(p));
-			}
-		}
-		
+		TotalDto<ProgramDto> result = programService.findAll();
+		result.settingTotalCount();
 		return result ;
 	} 
 	
@@ -71,50 +54,14 @@ public class ProgramController {
 	
 	@RequestMapping(value = "/information", method = RequestMethod.POST)
 	@ResponseBody
-	public Program saveInformation(
+	public ProgramDto saveInformation(
 			HttpServletRequest request , HttpServletResponse response ,
 			@ModelAttribute ProgramForm form 
 			) {
 		
-		Program p = programService.save(form);
+		ProgramDto dto = programService.save(form);
 		
-		return p ; 
-	}
-	
-	private ProgramDto domainToDto(Program p) {
-		List<String> genres = new ArrayList<String>();
-		List<ProgramProductDto> programProducts = new ArrayList<ProgramProductDto>();
-		
-		List<ProgramGenre> pgList = p.getProgramGenre();
-		List<ProgramProduct> ppList = p.getProgramProduct();
-		
-		if ( pgList != null ) { 
-			for ( ProgramGenre pg : pgList ) {
-				Genre g = pg.getGenre();
-				if ( g != null && g.getGenreName() != null ) {
-					genres.add(g.getGenreName());
-				}
-			}
-		}
-		
-		if ( ppList != null ) {
-			for ( ProgramProduct pp : ppList) { 
-				ProgramProductDto ppDto = new ProgramProductDto();
-				ppDto.setProgramId(pp.getId().getProgramId());
-				ppDto.setProductId(pp.getId().getProductId());
-				ppDto.setTitle(pp.getTitle());
-				programProducts.add(ppDto);
-			}
-		}
-		
-		ProgramDto dto = new ProgramDto();
-		dto.setProgramId(p.getProgramId());
-		dto.setTitle(p.getTitle());
-		dto.setSynopsis(p.getSynopsis());
-		dto.setGenres(genres);
-		dto.setProducts(programProducts);
-		
-		return dto;
+		return dto ; 
 	}
 	
 }

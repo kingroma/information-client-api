@@ -15,6 +15,7 @@ import information.client.api.domain.ProgramGenre;
 import information.client.api.domain.ProgramProduct;
 import information.client.api.dto.ProgramDto;
 import information.client.api.dto.ProgramProductDto;
+import information.client.api.dto.TotalDto;
 import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
 import information.client.api.util.DomainUtil;
@@ -27,8 +28,17 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 	}
 	
 	@Override
-	public List<Program> findAll() {
-		return dao.findAll();
+	@Transactional
+	public TotalDto<ProgramDto> findAll() {
+		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
+		List<Program> list = dao.findAll();
+		
+		if ( list != null ) {
+			for ( Program p : list ) { 
+				result.add(domainToDto(p));
+			}
+		}
+		return result ; 
 	}
 	
 	@Override
@@ -48,7 +58,8 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 	
 	@Override
 	@Transactional
-	public Program save(ProgramForm form) {
+	public ProgramDto save(ProgramForm form) {
+		ProgramDto dto = null ;
 		Program program = null ; 
 		
 		if ( form != null ) {
@@ -62,15 +73,12 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 			program.setSynopsis(form.getSynopsis());
 			program.setRegistDate(new Timestamp(new Date().getTime()));
 			program.setUpdateDate(new Timestamp(new Date().getTime()));
-			System.out.println(program.getProgramId());
-			try {
-				program = dao.save(program);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			
+			program = dao.save(program);
+			dto = domainToDto(program);
 		}
 		
-		return program ; 
+		return dto ; 
 	}
 	
 	private ProgramDto domainToDto(Program p) {
