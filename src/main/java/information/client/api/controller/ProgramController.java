@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import information.client.api.domain.Program;
 import information.client.api.dto.ProgramDto;
+import information.client.api.dto.ResponseDto;
 import information.client.api.dto.TotalDto;
 import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
@@ -38,14 +38,18 @@ public class ProgramController {
 	
 	@RequestMapping(value = "/information/{PROGRAM_ID}" , method = RequestMethod.GET)
 	@ResponseBody
-	public ProgramDto getInformation(
+	public ResponseDto<ProgramDto> getInformation(
 			HttpServletRequest request , HttpServletResponse response ,
 			 @PathVariable("PROGRAM_ID") String programId 
 			){
-		ProgramDto result = new ProgramDto();
+		logger.info("programId = {}",programId);
+		
+		ResponseDto<ProgramDto> result = new ResponseDto<ProgramDto>();
+		ProgramDto dto = null ; 
 		
 		if ( programId != null && !programId.isEmpty() ) {
-			result = programService.findById(programId);
+			dto = programService.findById(programId);
+			result.setData(dto);
 		}
 		
 		return result ;

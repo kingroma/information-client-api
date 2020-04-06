@@ -46,13 +46,12 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 	public ProgramDto findById(String programId) {
 		Program p = null ;
 		ProgramDto dto = null ; 
-		try {
-			p = dao.findById(programId);
-			dto = domainToDto(p);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
+		p = dao.findById(programId);
+		if ( p != null ) {
+			dto = domainToDto(p);	
+		}
+			
 		return dto ; 
 	}
 	
