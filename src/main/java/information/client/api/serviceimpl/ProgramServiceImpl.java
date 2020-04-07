@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,17 +23,16 @@ import information.client.api.service.ProgramService;
 import information.client.api.util.DomainUtil;
 
 @Service
-public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> implements ProgramService {
+public class ProgramServiceImpl implements ProgramService {
 	
-	protected ProgramServiceImpl() {
-		super(ProgramDao.class);
-	}
+	@Resource
+	ProgramDao programDao ;
 	
 	@Override
 	@Transactional
 	public TotalDto<ProgramDto> findAll() {
 		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
-		List<Program> list = dao.findAll();
+		List<Program> list = programDao.findAll();
 		
 		if ( list != null ) {
 			for ( Program p : list ) { 
@@ -47,7 +48,7 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 		Program p = null ;
 		ProgramDto dto = null ; 
 		
-		p = dao.findById(programId);
+		p = programDao.findById(programId);
 		if ( p != null ) {
 			dto = domainToDto(p);	
 		}
@@ -73,7 +74,7 @@ public class ProgramServiceImpl extends BaseServiceImpl<Program,ProgramDao> impl
 			program.setRegistDate(new Timestamp(new Date().getTime()));
 			program.setUpdateDate(new Timestamp(new Date().getTime()));
 			
-			program = dao.save(program);
+			program = programDao.save(program);
 			dto = domainToDto(program);
 		}
 		

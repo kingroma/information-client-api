@@ -20,7 +20,7 @@ import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
 
 @Controller
-@RequestMapping("/program/")
+@RequestMapping("/program")
 public class ProgramController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProgramController.class);
