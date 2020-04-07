@@ -7,6 +7,8 @@ public class ResponseDto<T> {
 	
 	private String resultCode = SUCCESS_CODE;
 	
+	private String resultMessage = null ;
+	
 	private T data = null ;
 
 	public String getResultCode() {
@@ -31,6 +33,14 @@ public class ResponseDto<T> {
 
 	public static String getErrorCode() {
 		return ERROR_CODE;
+	}
+
+	public String getResultMessage() {
+		return resultMessage;
+	}
+
+	public void setResultMessage(String resultMessage) {
+		this.resultMessage = resultMessage;
 	}
 	
 	
