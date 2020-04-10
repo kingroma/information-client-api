@@ -1,7 +1,9 @@
-package information.client.api.dto;
+package information.client.api.responsedto;
 
 public class ResponseDto<T> {
 	public static final String SUCCESS_CODE = "200";
+	
+	public static final String PARAMETER_ERROR_CODE = "400";
 	
 	public static final String ERROR_CODE = "500";
 	
@@ -9,7 +11,7 @@ public class ResponseDto<T> {
 	
 	private String resultMessage = null ;
 	
-	private T data = null ;
+	private T result = null ;
 
 	public String getResultCode() {
 		return resultCode;
@@ -19,12 +21,12 @@ public class ResponseDto<T> {
 		this.resultCode = resultCode;
 	}
 
-	public T getData() {
-		return data;
+	public T getResult() {
+		return result;
 	}
 
-	public void setData(T data) {
-		this.data = data;
+	public void setResult(T result) {
+		this.result = result;
 	}
 
 	public static String getSuccessCode() {

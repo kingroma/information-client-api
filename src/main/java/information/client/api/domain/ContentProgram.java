@@ -6,6 +6,8 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,6 +45,10 @@ public class ContentProgram implements Serializable{
 	
 	@Column(name = "update_date")
 	private Timestamp updateDate ;
+	
+	@ManyToOne
+	@JoinColumn(name = "content_id" , insertable = false , updatable = false)
+	private Content content;
 
 	public ContentProgramPK getId() {
 		
@@ -83,6 +89,14 @@ public class ContentProgram implements Serializable{
 
 	public void setContentType(ContentType contentType) {
 		this.contentType = contentType;
+	}
+
+	public Content getContent() {
+		return content;
+	}
+
+	public void setContent(Content content) {
+		this.content = content;
 	}
 	
 	

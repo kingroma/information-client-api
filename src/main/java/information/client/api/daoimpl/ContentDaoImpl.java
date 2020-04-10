@@ -3,11 +3,10 @@ package information.client.api.daoimpl;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
-import information.client.api.dao.TokenDao;
-import information.client.api.domain.Token;
+import information.client.api.domain.Content;
 
 @Lazy
 @Repository
-public class TokenDaoImpl extends BaseDaoImpl<Token,String> implements TokenDao{
+public class ContentDaoImpl extends BaseDaoImpl<Content,String>{
 
 }

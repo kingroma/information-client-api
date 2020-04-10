@@ -10,5 +10,10 @@
 		<class>information.client.api.domain.Genre</class>
 		<class>information.client.api.domain.Program</class>
 		<class>information.client.api.domain.ProgramGenre</class>
+		<class>information.client.api.domain.Content</class>
+		<class>information.client.api.domain.ContentProgram</class>
+		<class>information.client.api.domain.ProgramProduct</class>
+		<class>information.client.api.domain.User</class>
+		<class>information.client.api.domain.UserToken</class>
 	</persistence-unit>
 </persistence>

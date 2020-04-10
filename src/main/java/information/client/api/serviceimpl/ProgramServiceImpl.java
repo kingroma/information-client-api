@@ -15,9 +15,9 @@ import information.client.api.domain.Genre;
 import information.client.api.domain.Program;
 import information.client.api.domain.ProgramGenre;
 import information.client.api.domain.ProgramProduct;
-import information.client.api.dto.ProgramDto;
-import information.client.api.dto.ProgramProductDto;
-import information.client.api.dto.TotalDto;
+import information.client.api.responsedto.ProgramDto;
+import information.client.api.responsedto.ProgramProductDto;
+import information.client.api.responsedto.TotalDto;
 import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
 import information.client.api.util.DomainUtil;
@@ -26,7 +26,7 @@ import information.client.api.util.DomainUtil;
 public class ProgramServiceImpl implements ProgramService {
 	
 	@Resource
-	ProgramDao programDao ;
+	private ProgramDao programDao ;
 	
 	@Override
 	@Transactional

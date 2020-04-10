@@ -1,7 +1,7 @@
 package information.client.api.service;
 
-import information.client.api.dto.ProgramDto;
-import information.client.api.dto.TotalDto;
+import information.client.api.responsedto.ProgramDto;
+import information.client.api.responsedto.TotalDto;
 import information.client.api.form.ProgramForm;
 
 public interface ProgramService {

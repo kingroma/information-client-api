@@ -2,10 +2,13 @@ package information.client.api.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -43,6 +46,9 @@ public class Content implements Serializable {
 	
 	@Column(name = "update_date")
 	private Timestamp updateDate ;
+	
+	@OneToMany(mappedBy = "content" , fetch = FetchType.LAZY)
+	private List<ContentProgram> contentProgram;
 
 	public String getContentId() {
 		return contentId;

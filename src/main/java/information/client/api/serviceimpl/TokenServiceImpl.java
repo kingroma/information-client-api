@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import information.client.api.dao.TokenDao;
+import information.client.api.dao.UserTokenDao;
 import information.client.api.form.UserForm;
 import information.client.api.service.TokenService;
 
@@ -12,5 +12,5 @@ import information.client.api.service.TokenService;
 public class TokenServiceImpl implements TokenService{
 	
 	@Resource 
-	TokenDao tokenDao ; 
+	UserTokenDao tokenDao ; 
 }

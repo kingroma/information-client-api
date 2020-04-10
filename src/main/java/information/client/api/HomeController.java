@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import information.client.api.domain.Test;
-import information.client.api.dto.TestDto;
-import information.client.api.dto.TotalDto;
+import information.client.api.responsedto.TestDto;
+import information.client.api.responsedto.TotalDto;
 import information.client.api.service.TestService;
 
 /**

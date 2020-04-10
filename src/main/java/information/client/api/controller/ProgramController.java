@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import information.client.api.dto.ProgramDto;
-import information.client.api.dto.ResponseDto;
-import information.client.api.dto.TotalDto;
+import information.client.api.responsedto.ProgramDto;
+import information.client.api.responsedto.ResponseDto;
+import information.client.api.responsedto.TotalDto;
 import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
 
@@ -49,7 +49,7 @@ public class ProgramController {
 		
 		if ( programId != null && !programId.isEmpty() ) {
 			dto = programService.findById(programId);
-			result.setData(dto);
+			result.setResult(dto);
 		}
 		
 		return result ;

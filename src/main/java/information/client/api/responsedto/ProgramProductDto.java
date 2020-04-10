@@ -1,4 +1,4 @@
-package information.client.api.dto;
+package information.client.api.responsedto;
 
 public class ProgramProductDto {
 	private String programId ; 

@@ -1,5 +1,7 @@
 package information.client.api.util;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Random;
 
 public class DomainUtil {
@@ -15,5 +17,9 @@ public class DomainUtil {
 		}
 		
 		return sb.toString();
+	}
+	
+	public static Timestamp nowTimestamp() {
+		return new Timestamp(new Date().getTime());
 	}
 }

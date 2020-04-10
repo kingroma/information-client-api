@@ -2,7 +2,6 @@ package information.client.api.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,8 +15,9 @@ import javax.persistence.Table;
 /**
 DROP TABLE T_PROGRAM ;
 CREATE TABLE T_PROGRAM (
-	PROGRAM_ID VARCHAR(30) PRIMARY KEY , 
+	PROGRAM_ID VARCHAR(30) PRIMARY KEY ,
 	TITLE VARCHAR(100) , 
+	PROGRAM_TYPE VARCHAR(30) , 
 	SYNOPSIS VARCHAR(200) , 
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP 
@@ -29,12 +29,19 @@ ALTER TABLE T_PROGRAM CONVERT TO CHARACTER SET UTF8;
 public class Program implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	public static enum ProgramType  {
+		basic , series 
+	}
+	
 	@Id
 	@Column(name = "program_id" , unique = true , nullable = false , length = 30 )
 	private String programId ; 
 	
 	@Column(name = "title")
 	private String title ; 
+	
+	@Column(name = "program_type")
+	private String programType ;
 	
 	@Column(name = "synopsis")
 	private String synopsis ; 

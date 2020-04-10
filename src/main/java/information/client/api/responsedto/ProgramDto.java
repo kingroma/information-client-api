@@ -1,4 +1,4 @@
-package information.client.api.dto;
+package information.client.api.responsedto;
 
 import java.util.List;
 
