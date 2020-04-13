@@ -27,4 +27,15 @@
 		<property name="cacheSeconds" value="60" />
 	</bean>
 	
+	<bean id="configSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:META-INF/properties/config</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
+	</bean>
+	
 </beans>
