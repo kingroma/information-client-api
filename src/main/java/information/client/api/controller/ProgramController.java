@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import information.client.api.form.ProgramForm;
 import information.client.api.responsedto.ProgramDto;
+import information.client.api.responsedto.ProgramProductDto;
 import information.client.api.responsedto.ResponseDto;
 import information.client.api.responsedto.TotalDto;
-import information.client.api.form.ProgramForm;
+import information.client.api.service.ProgramProductService;
 import information.client.api.service.ProgramService;
 
 @Controller
@@ -26,7 +28,10 @@ public class ProgramController {
 	private static final Logger logger = LoggerFactory.getLogger(ProgramController.class);
 	
 	@Resource
-	private ProgramService programService ; 
+	private ProgramService programService ;
+	
+	@Resource
+	private ProgramProductService programProductService ;
 	
 	@RequestMapping(value = "/information/listAll" , method = RequestMethod.GET)
 	@ResponseBody
@@ -55,6 +60,24 @@ public class ProgramController {
 		return result ;
 	} 
 	
+	@RequestMapping(value = "/product/information/{PRODUCT_ID}", method = RequestMethod.GET )
+	@ResponseBody
+	public ResponseDto<ProgramProductDto> getProductInformation(
+			HttpServletRequest request , HttpServletResponse response ,
+			 @PathVariable("PRODUCT_ID") String productId
+			) {
+		logger.info("productId = {}",productId);
+		
+		ResponseDto<ProgramProductDto> result = new ResponseDto<ProgramProductDto>();
+		ProgramProductDto dto = null ; 
+		
+		if ( productId != null && !productId.isEmpty() ) {
+			dto = programProductService.findById(productId);
+			result.setResult(dto);
+		}
+		
+		return result ; 
+	}
 	
 	@RequestMapping(value = "/information", method = RequestMethod.POST)
 	@ResponseBody
@@ -67,6 +90,5 @@ public class ProgramController {
 		
 		return dto ; 
 	}
-	
 	
 }

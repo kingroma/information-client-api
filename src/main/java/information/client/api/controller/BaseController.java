@@ -14,7 +14,9 @@ public class BaseController {
 	protected String getMessage(String key) {
 		String message = null ; 
 		if ( key != null && !key.isEmpty() ) {
-			message = messageSource.getMessage(key, null, Locale.getDefault());
+			try {
+				message = messageSource.getMessage(key, null, Locale.getDefault());
+			} catch (Exception e) { }
 		}
 		return message ; 
 	}
