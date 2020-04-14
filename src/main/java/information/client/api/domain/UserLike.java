@@ -9,32 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * 
-DROP TABLE T_IMAGE_META ; 
-CREATE TABLE T_IMAGE_META (
-	IMAGE_ID VARCHAR(30) PRIMARY KEY, 
-	MAPPING_ID VARCHAR(30) ,
-	IMAGE_TYPE VARCHAR(100) , 
+DROP TABLE T_USER_LIKE ;
+CREATE TABLE T_USER_LIKE (
+	LIKE_ID VARCHAR(30) PRIMARY KEY,
+	MAPPING_ID VARCHAR(30) , 
 	REGIST_DATE TIMESTAMP , 
-	UPDATE_DATE TIMESTAMP
-) ;
-ALTER TABLE T_IMAGE_META CONVERT TO CHARACTER SET UTF8;
-ALTER TABLE T_IMAGE_META ADD INDEX IMAGE_MAPPING (MAPPING_ID);
+	UPDATE_DATE TIMESTAMP 
+) ; 
+ALTER TABLE T_USER_LIKE CONVERT TO CHARACTER SET UTF8; 
+ALTER TABLE T_USER_LIKE ADD INDEX USER_LIKE_MAPPING (MAPPING_ID);
  * */
 @Entity
-@Table(name = "t_image_meta")
-public class ImageMeta implements Serializable{
+@Table(name = "t_user_like")
+public class UserLike implements Serializable{
 	private static final long serialVersionUID = 1L ;
 	
 	@Id
-	@Column(name = "image_id" , nullable = false)
-	private String imageId ;
+	@Column(name = "like_id" , nullable = false)
+	private String likeId ; 	
 	
 	@Column(name = "mapping_id")
 	private String mappingId ;
-	
-	@Column(name = "image_type")
-	private String imageType ; 
 	
 	@Column(name = "regist_date")
 	private Timestamp registDate ;
@@ -42,13 +37,12 @@ public class ImageMeta implements Serializable{
 	@Column(name = "update_date")
 	private Timestamp updateDate ;
 
-
-	public String getImageId() {
-		return imageId;
+	public String getLikeId() {
+		return likeId;
 	}
 
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
+	public void setLikeId(String likeId) {
+		this.likeId = likeId;
 	}
 
 	public String getMappingId() {
@@ -74,13 +68,6 @@ public class ImageMeta implements Serializable{
 	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
 	}
-
-	public String getImageType() {
-		return imageType;
-	}
-
-	public void setImageType(String imageType) {
-		this.imageType = imageType;
-	}
+	
 	
 }

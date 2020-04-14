@@ -19,6 +19,7 @@ CREATE TABLE T_PROGRAM (
 	TITLE VARCHAR(100) , 
 	PROGRAM_TYPE VARCHAR(30) , 
 	SYNOPSIS VARCHAR(200) , 
+	WATCH_COUNT INT ,
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP 
 ) ;
@@ -45,6 +46,9 @@ public class Program implements Serializable {
 	
 	@Column(name = "synopsis")
 	private String synopsis ; 
+	
+	@Column(name = "watch_count")
+	private Integer watchCount ;
 	
 	@Column(name = "regist_date")
 	private Timestamp registDate ;
@@ -113,7 +117,23 @@ public class Program implements Serializable {
 	public void setProgramProduct(List<ProgramProduct> programProduct) {
 		this.programProduct = programProduct;
 	} 
-	
+
+	public String getProgramType() {
+		return programType;
+	}
+
+	public void setProgramType(String programType) {
+		this.programType = programType;
+	}
+
+	public Integer getWatchCount() {
+		return watchCount;
+	}
+
+	public void setWatchCount(Integer watchCount) {
+		this.watchCount = watchCount;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31 ; 

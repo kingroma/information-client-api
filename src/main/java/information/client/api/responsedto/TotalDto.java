@@ -12,11 +12,11 @@ public class TotalDto<T> {
 	
 	private Integer totalCount = 0;
 	
-	private List<T> data = null ; 
+	private List<T> result = null ; 
 
 	public void settingTotalCount() {
-		if ( data != null ) {
-			totalCount = data.size();
+		if ( result != null ) {
+			totalCount = result.size();
 		}
 	}
 	
@@ -28,28 +28,28 @@ public class TotalDto<T> {
 		this.totalCount = totalCount;
 	}
 
-	public List<?> getData() {
-		return data;
+	public List<?> getResult() {
+		return result;
 	}
 
 	public void add(T entity) {
-		if ( data == null ) {
-			data = new ArrayList<T>();
+		if ( result == null ) {
+			result = new ArrayList<T>();
 		}
 		
-		data.add(entity);
+		result.add(entity);
 	}
 	
 	public void clear() {
-		if ( data == null ) {
-			data = new ArrayList<T>();
+		if ( result == null ) {
+			result = new ArrayList<T>();
 		}
 		
-		data.clear();
+		result.clear();
 	}
 	
-	public void setData(List<T> data) {
-		this.data = data;
+	public void setResult(List<T> result) {
+		this.result = result;
 	}
 
 	public static String getSuccessCode() {

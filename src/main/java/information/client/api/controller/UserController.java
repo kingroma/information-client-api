@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import information.client.api.responsedto.ResponseDto;
 import information.client.api.exception.LoginIdPwIncorrectException;
 import information.client.api.form.UserForm;
+import information.client.api.responsedto.ResponseDto;
+import information.client.api.responsedto.TotalDto;
+import information.client.api.responsedto.UserWatchHistDto;
 import information.client.api.service.TokenService;
 import information.client.api.service.UserService;
+import information.client.api.service.UserWatchHistService;
 
 @Controller
 @RequestMapping("/user")
@@ -31,6 +34,9 @@ public class UserController extends BaseController{
 	
 	@Resource
 	private TokenService tokenService ; 
+	
+	@Resource
+	private UserWatchHistService userWatchHistService;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
@@ -109,7 +115,6 @@ public class UserController extends BaseController{
 		
 		return responseDto ; 
 	}
-	
 	
 	
 	@ExceptionHandler(Exception.class)
