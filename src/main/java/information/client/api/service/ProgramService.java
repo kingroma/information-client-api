@@ -8,7 +8,7 @@ public interface ProgramService {
 
 	public TotalDto<ProgramDto> findAll() ;
 	
-	public ProgramDto findById(String programId) ;
+	public ProgramDto findByIdWithProgramProduct(String programId) ;
 	
 	public ProgramDto save(ProgramForm form);
 }

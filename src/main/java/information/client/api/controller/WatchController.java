@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,10 +54,17 @@ public class WatchController {
 	@ResponseBody
 	public TotalDto<UserWatchHistDto> watchHist(
 			HttpServletRequest request , HttpServletResponse response , 
-			@RequestParam(value = "userId") String userId
+			@RequestParam(value = "userId" , required = false ) String userId 
 			){
-		
 		TotalDto<UserWatchHistDto> result = new TotalDto<UserWatchHistDto>() ;
+		
+		if ( userId == null || userId.isEmpty() ) { 
+			result.setResultCode(TotalDto.PARAM_ERROR);
+			result.setErrorMessage("userId is empty");
+			result.setTotalCount(null);
+			return result ; 
+		}else { userId = userId.trim(); }
+		
 		try {
 			result = userWatchHistService.getUserWatchHistRecentProgram(userId);
 		} catch (Exception e) {

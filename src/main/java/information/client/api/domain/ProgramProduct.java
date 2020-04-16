@@ -16,6 +16,9 @@ CREATE TABLE T_PROGRAM_PRODUCT (
 	PROGRAM_ID VARCHAR(30) ,
 	PRODUCT_ID VARCHAR(30) , 
 	TITLE VARCHAR(100) , 
+	TEXT VARCHAR(1000) , 
+	SEASON VARCHAR(10) , 
+	EPISODE VARCHAR(10) , 
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP , 
 	PRIMARY KEY (PROGRAM_ID , PRODUCT_ID)
@@ -32,6 +35,15 @@ public class ProgramProduct implements Serializable {
 	
 	@Column(name = "title")
 	private String title ;
+	
+	@Column(name = "text")
+	private String text ; 
+	
+	@Column(name = "season")
+	private String season ;
+	
+	@Column(name = "episode")
+	private String episode ; 
 	
 	@Column(name = "regist_date")
 	private Timestamp registDate ;
@@ -82,6 +94,30 @@ public class ProgramProduct implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getSeason() {
+		return season;
+	}
+
+	public void setSeason(String season) {
+		this.season = season;
+	}
+
+	public String getEpisode() {
+		return episode;
+	}
+
+	public void setEpisode(String episode) {
+		this.episode = episode;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	@Override

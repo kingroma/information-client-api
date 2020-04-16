@@ -8,6 +8,8 @@ public class ProgramDto {
 	private String title ;
 	
 	private String synopsis ;
+	
+	private String programType ;
 
 	private List<String> genres ; 
 	
@@ -39,6 +41,14 @@ public class ProgramDto {
 
 	public List<String> getGenres() {
 		return genres;
+	}
+
+	public String getProgramType() {
+		return programType;
+	}
+
+	public void setProgramType(String programType) {
+		this.programType = programType;
 	}
 
 	public void setGenres(List<String> genres) {

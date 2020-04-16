@@ -49,7 +49,11 @@ public class BaseInterceptor implements HandlerInterceptor{
 		
 		String token = request.getParameter(TOKEN_PARAMETER);
 		
-		boolean authCheck = userService.authUserToken(token);
+		boolean authCheck = false ; 
+		if ( token != null && !token.isEmpty() ) {
+			authCheck = userService.authUserToken(token);
+		}
+		
 		if ( authCheck == false ) {
 			result = false ; 
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

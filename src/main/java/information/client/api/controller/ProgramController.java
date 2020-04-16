@@ -53,7 +53,7 @@ public class ProgramController {
 		ProgramDto dto = null ; 
 		
 		if ( programId != null && !programId.isEmpty() ) {
-			dto = programService.findById(programId);
+			dto = programService.findByIdWithProgramProduct(programId);
 			result.setResult(dto);
 		}
 		

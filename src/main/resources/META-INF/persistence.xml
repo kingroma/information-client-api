@@ -6,14 +6,19 @@
 	version="2.0">
 	<persistence-unit name="domainPU"
 		transaction-type="RESOURCE_LOCAL">
-		<class>information.client.api.domain.Test</class>
-		<class>information.client.api.domain.Genre</class>
-		<class>information.client.api.domain.Program</class>
-		<class>information.client.api.domain.ProgramGenre</class>
 		<class>information.client.api.domain.Content</class>
 		<class>information.client.api.domain.ContentProgram</class>
+		<class>information.client.api.domain.Genre</class>
+		<class>information.client.api.domain.ImageMeta</class>
+		<class>information.client.api.domain.Program</class>
+		<class>information.client.api.domain.ProgramGenre</class>
 		<class>information.client.api.domain.ProgramProduct</class>
+		<class>information.client.api.domain.Test</class>
+		<class>information.client.api.domain.Timeline</class>
+		<class>information.client.api.domain.TimelineProgram</class>		
 		<class>information.client.api.domain.User</class>
+		<class>information.client.api.domain.UserLike</class>
 		<class>information.client.api.domain.UserToken</class>
+		<class>information.client.api.domain.UserWatchHist</class>
 	</persistence-unit>
 </persistence>

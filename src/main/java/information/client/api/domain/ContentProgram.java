@@ -15,10 +15,10 @@ DROP TABLE T_CONTENT_PROGRAM ;
 CREATE TABLE T_CONTENT_PROGRAM (
 	CONTENT_ID VARCHAR(30) , 
 	PROGRAM_ID VARCHAR(30) ,
-	CONTENT_TYPE VARCHAR(100) , 
 	SORT_SN INT , 
 	REGIST_DATE TIMESTAMP , 
-	UPDATE_DATE TIMESTAMP
+	UPDATE_DATE TIMESTAMP , 
+	PRIMARY KEY ( CONTENT_ID , PROGRAM_ID ) 
 ) ;
 ALTER TABLE T_CONTENT_PROGRAM CONVERT TO CHARACTER SET UTF8;
  * */
@@ -27,15 +27,8 @@ ALTER TABLE T_CONTENT_PROGRAM CONVERT TO CHARACTER SET UTF8;
 public class ContentProgram implements Serializable{
 	private static final long serialVersionUID = 1L ;
 	
-	public enum ContentType {
-		MAIN , 
-	}
-	
 	@EmbeddedId
 	private ContentProgramPK id;
-	
-	@Column(name = "content_type")
-	private ContentType contentType ;
 	
 	@Column(name = "sort_sn")
 	private Integer sortSn ;
@@ -49,7 +42,7 @@ public class ContentProgram implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "content_id" , insertable = false , updatable = false)
 	private Content content;
-
+	
 	public ContentProgramPK getId() {
 		
 		return id;
@@ -81,14 +74,6 @@ public class ContentProgram implements Serializable{
 
 	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
-	}
-
-	public ContentType getContentType() {
-		return contentType;
-	}
-
-	public void setContentType(ContentType contentType) {
-		this.contentType = contentType;
 	}
 
 	public Content getContent() {

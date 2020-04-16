@@ -13,11 +13,10 @@ public class ProgramTest {
 	private static ProgramType[] pt = {ProgramType.basic,ProgramType.series};
 	
 	public static void main(String[] args) {
-		// insertProgram();
-		// insertProgramProduct();
-		
-		// insertGenre();
-		// insertProgramGenre();
+		insertProgram();
+		insertProgramProduct();
+		insertGenre();
+		insertProgramGenre();
 	}
 	
 	public static void insertGenre() {
@@ -105,7 +104,7 @@ public class ProgramTest {
 			// insert into t_program values ('1','titl1','synopsis1',now(),now()) ;
 			for ( int i = 0 ; i < 10 ; i ++ ) {
 				
-				String sql = "insert into t_program values (?,?,?,?,now(),now())";
+				String sql = "insert into t_program (program_id,title,PROGRAM_TYPE,synopsis,regist_date,update_date)  values (?,?,?,?,now(),now())";
 				PreparedStatement pstmt = connection.prepareStatement(sql);
 				pstmt.setString(1, "" + i);
 				pstmt.setString(2, "title" + i);

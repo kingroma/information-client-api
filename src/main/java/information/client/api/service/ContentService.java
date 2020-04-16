@@ -1,8 +1,11 @@
 package information.client.api.service;
 
+import java.util.List;
+
 import information.client.api.responsedto.ContentDto;
-import information.client.api.responsedto.TotalDto;
 
 public interface ContentService {
-	public TotalDto<ContentDto> findAll() ; 
+	public List<ContentDto> listAll() ; 
+	
+	public List<ContentDto> list(String contentType) ;
 }

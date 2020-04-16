@@ -15,11 +15,12 @@ import information.client.api.domain.Genre;
 import information.client.api.domain.Program;
 import information.client.api.domain.ProgramGenre;
 import information.client.api.domain.ProgramProduct;
+import information.client.api.form.ProgramForm;
 import information.client.api.responsedto.ProgramDto;
 import information.client.api.responsedto.ProgramProductDto;
 import information.client.api.responsedto.TotalDto;
-import information.client.api.form.ProgramForm;
 import information.client.api.service.ProgramService;
+import information.client.api.sort.ProgramProductSeasonEpisodeSortASC;
 import information.client.api.util.DomainUtil;
 
 @Service
@@ -44,7 +45,7 @@ public class ProgramServiceImpl implements ProgramService {
 	
 	@Override
 	@Transactional
-	public ProgramDto findById(String programId) {
+	public ProgramDto findByIdWithProgramProduct(String programId) {
 		Program p = null ;
 		ProgramDto dto = null ; 
 		
@@ -82,6 +83,13 @@ public class ProgramServiceImpl implements ProgramService {
 	}
 	
 	private ProgramDto domainToDto(Program p) {
+		ProgramDto dto = new ProgramDto();
+		
+		dto.setProgramId(p.getProgramId());
+		dto.setTitle(p.getTitle());
+		dto.setSynopsis(p.getSynopsis());
+		dto.setProgramType(p.getProgramType());
+		
 		List<String> genres = new ArrayList<String>();
 		List<ProgramProductDto> programProducts = new ArrayList<ProgramProductDto>();
 		
@@ -95,24 +103,24 @@ public class ProgramServiceImpl implements ProgramService {
 					genres.add(g.getGenreName());
 				}
 			}
+			dto.setGenres(genres);
 		}
 		
 		if ( ppList != null ) {
+			ppList.sort(new ProgramProductSeasonEpisodeSortASC());
 			for ( ProgramProduct pp : ppList) { 
 				ProgramProductDto ppDto = new ProgramProductDto();
 				ppDto.setProgramId(pp.getId().getProgramId());
 				ppDto.setProductId(pp.getId().getProductId());
 				ppDto.setTitle(pp.getTitle());
+				ppDto.setText(pp.getText());
+				ppDto.setSeason(pp.getSeason());
+				ppDto.setEpisode(pp.getEpisode());
+				
 				programProducts.add(ppDto);
 			}
+			dto.setProducts(programProducts);
 		}
-		
-		ProgramDto dto = new ProgramDto();
-		dto.setProgramId(p.getProgramId());
-		dto.setTitle(p.getTitle());
-		dto.setSynopsis(p.getSynopsis());
-		dto.setGenres(genres);
-		dto.setProducts(programProducts);
 		
 		return dto;
 	}

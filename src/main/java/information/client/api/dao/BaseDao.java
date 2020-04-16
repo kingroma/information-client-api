@@ -12,6 +12,8 @@ import com.googlecode.genericdao.search.Sort;
 public interface BaseDao<T, ID extends Serializable> extends GenericDAO<T, ID> {
 	public EntityManager getEntityManager();
 	
+	public List<T> findAll(Sort sort);
+	
 	public List<T> find(Filter... filters) ;
 	
 	public List<T> find(Sort sort, Filter... filters);
