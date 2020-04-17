@@ -12,13 +12,16 @@ import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Sort;
 
 import information.client.api.dao.ContentDao;
+import information.client.api.dao.ImageMetaDao;
 import information.client.api.dao.ProgramDao;
 import information.client.api.domain.Content;
 import information.client.api.domain.Content.ContentType;
 import information.client.api.domain.ContentProgram;
+import information.client.api.domain.ImageMeta;
 import information.client.api.domain.Program;
 import information.client.api.responsedto.ContentDto;
 import information.client.api.responsedto.ContentProgramDto;
+import information.client.api.responsedto.ImageMetaDto;
 import information.client.api.service.ContentService;
 import information.client.api.sort.ContentProgramSortASC;
 
@@ -30,6 +33,9 @@ public class ContentServiceImpl implements ContentService{
 	
 	@Resource 
 	private ProgramDao programDao ; 
+	
+	@Resource
+	private ImageMetaDao imageMetaDao ;
 
 	@Override
 	@Transactional
@@ -89,6 +95,28 @@ public class ContentServiceImpl implements ContentService{
 					ContentProgramDto contentProgramDto = new ContentProgramDto();
 					contentProgramDto.setProgramId(programId);
 					contentProgramDto.setTitle(title);
+					
+					Filter[] imageMetaFilters = {
+								Filter.equal("mappingId", programId), 
+								Filter.equal("imageType", c.getContentType() )
+							};
+							// Filter("mappingId",programId);
+					
+					List<ImageMeta> imageMetaList = imageMetaDao.find(imageMetaFilters);
+					List<ImageMetaDto> imageMetaDtoList = new ArrayList<ImageMetaDto>();
+					
+					if ( imageMetaList != null ) {
+						for ( ImageMeta im : imageMetaList ) {
+							ImageMetaDto imageMetaDto = new ImageMetaDto();
+							
+							imageMetaDto.setImageId(im.getImageId());
+							imageMetaDto.setImageType(im.getImageType());
+							imageMetaDto.setMappingId(im.getMappingId());
+							
+							imageMetaDtoList.add(imageMetaDto);
+						}
+						contentProgramDto.setImageMeta(imageMetaDtoList);
+					}
 					
 					contentProgramDtoList.add(contentProgramDto);
 				}

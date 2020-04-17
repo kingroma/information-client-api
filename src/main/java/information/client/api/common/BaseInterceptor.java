@@ -3,19 +3,24 @@ package information.client.api.common;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndViewDefiningException;
 
+import information.client.api.controller.ProgramController;
 import information.client.api.service.UserService;
 
 public class BaseInterceptor implements HandlerInterceptor{
-
+	private static final Logger logger = LoggerFactory.getLogger(BaseInterceptor.class);
+	
 	private final String TOKEN_PARAMETER = "token";
 
 	private final String[] PASS_URL = {
-		"/user"	
+		"/user"	,
+		"/ui"
 	};
 	
 	@Autowired
@@ -52,6 +57,8 @@ public class BaseInterceptor implements HandlerInterceptor{
 		boolean authCheck = false ; 
 		if ( token != null && !token.isEmpty() ) {
 			authCheck = userService.authUserToken(token);
+		}else {
+			logger.info("Token is empty");
 		}
 		
 		if ( authCheck == false ) {

@@ -1,12 +1,10 @@
 package information.client.api.main;
 
-import information.client.api.util.DomainUtil;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 public class Main {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(DomainUtil.getUUID(30));
-	}
-
+	
+	
 }

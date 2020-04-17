@@ -12,7 +12,13 @@ import com.googlecode.genericdao.search.Sort;
 public interface BaseDao<T, ID extends Serializable> extends GenericDAO<T, ID> {
 	public EntityManager getEntityManager();
 	
+	public Integer countAll();
+	
 	public List<T> findAll(Sort sort);
+	
+	public List<T> findAll(int offset, int limit);
+	
+	public List<T> findAll(Sort sort, int offset, int limit);
 	
 	public List<T> find(Filter... filters) ;
 	

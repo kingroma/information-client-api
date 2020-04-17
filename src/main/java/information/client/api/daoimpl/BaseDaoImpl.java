@@ -30,9 +30,35 @@ public class BaseDaoImpl<T, ID extends Serializable> extends GenericDAOImpl<T, I
 		super.setSearchProcessor(searchProcessor);
 	}
 	
+	@Override
+	public Integer countAll() {
+		Search s = new Search();
+		List<T> list = search(s);
+		
+		return list.size();
+	}
+	
+	@Override
 	public List<T> findAll(Sort sort){
 		Search s = new Search();
 		s.addSort(sort);
+		return search(s);
+	}
+	
+	@Override
+	public List<T> findAll(int offset, int limit) {
+		Search s = new Search();
+		s.setFirstResult(offset);
+		s.setMaxResults(limit);
+		return search(s);
+	}
+	
+	@Override
+	public List<T> findAll(Sort sort, int offset, int limit) {
+		Search s = new Search();
+		s.addSort(sort);
+		s.setFirstResult(offset);
+		s.setMaxResults(limit);
 		return search(s);
 	}
 	

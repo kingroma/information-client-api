@@ -32,7 +32,7 @@ public class Program implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	public static enum ProgramType  {
-		basic , series 
+		programBasic , programSeries 
 	}
 	
 	@Id

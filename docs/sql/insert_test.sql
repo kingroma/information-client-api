@@ -2,15 +2,15 @@ INSERT INTO T_USER VALUES ( 'kingroma', '4235' ,'kjj', NOW() , now()) ;
 insert into T_USER_TOKEN values ( '7DKjtfw4ArN2HlrGq3Tl','kingroma',now(),now()) ;
 
 -- PROGRAM_ID , TITLE , PROGRAM_TYPE , SYNOPSIS , WATCH_COUNT , REGIST_DATE , UPDATE_DATE 
-INSERT INTO T_PROGRAM VALUES( '1','TITLE1','basic','synopsis1',1,now(),now());
-INSERT INTO T_PROGRAM VALUES( '2','TITLE2','series','synopsis2',6,now(),now());
-INSERT INTO T_PROGRAM VALUES( '3','TITLE13','basic','synopsis3',1,now(),now());
-INSERT INTO T_PROGRAM VALUES( '4','TITLE4','basic','synopsis4',1,now(),now());
-INSERT INTO T_PROGRAM VALUES( '5','TITLE51','basic','synopsis5',3,now(),now());
-INSERT INTO T_PROGRAM VALUES( '6','TITLE6','basic','synopsis16',1,now(),now());
-INSERT INTO T_PROGRAM VALUES( '7','TITLE7','basic','synopsis17',1,now(),now());
-INSERT INTO T_PROGRAM VALUES( '8','TITLE8','series','synopsis8',5,now(),now());
-INSERT INTO T_PROGRAM VALUES( '9','TITLE9','basic','synopsis19',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '1','TITLE1','programBasic','synopsis1',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '2','TITLE2','programSeries','synopsis2',6,now(),now());
+INSERT INTO T_PROGRAM VALUES( '3','TITLE13','programBasic','synopsis3',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '4','TITLE4','programBasic','synopsis4',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '5','TITLE51','programBasic','synopsis5',3,now(),now());
+INSERT INTO T_PROGRAM VALUES( '6','TITLE6','programBasic','synopsis16',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '7','TITLE7','programBasic','synopsis17',1,now(),now());
+INSERT INTO T_PROGRAM VALUES( '8','TITLE8','programSeries','synopsis8',5,now(),now());
+INSERT INTO T_PROGRAM VALUES( '9','TITLE9','programBasic','synopsis19',1,now(),now());
 
 
 
@@ -58,13 +58,13 @@ INSERT INTO T_PROGRAM_GENRE VALUES ( '7' , '2' , NOW(), NOW());
 
 
 -- CONTENT_ID , CONTENT_NAME , CONTENT_TYPE , SORT_SN , USE_AT 
-INSERT INTO T_CONTENT VALUES ('1','CONTENT1','basic',1,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('2','CONTENT2','basic',7,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('3','CONTENT3','basic',6,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('4','CONTENT4','basic',5,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('5','CONTENT5','issue',4,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('6','CONTENT6','basic',3,'Y',NOW(),NOW()) ;
-INSERT INTO T_CONTENT VALUES ('7','CONTENT7','top',2,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('1','CONTENT1','contentBasic',1,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('2','CONTENT2','contentBasic',7,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('3','CONTENT3','contentBasic',6,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('4','CONTENT4','contentBasic',5,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('5','CONTENT5','contentIssue',4,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('6','CONTENT6','contentBasic',3,'Y',NOW(),NOW()) ;
+INSERT INTO T_CONTENT VALUES ('7','CONTENT7','contentTop',2,'Y',NOW(),NOW()) ;
 
 -- CONTENT_ID , PROGRAM_ID , CONTENT_TYPE , SORT_SN 
 INSERT INTO T_CONTENT_PROGRAM VALUES ( '1' , '1' , NULL , 3 , NOW(), NOW());
@@ -84,3 +84,16 @@ INSERT INTO T_CONTENT_PROGRAM VALUES ( '4' , '6' , NULL , 2 , NOW(), NOW());
 INSERT INTO T_CONTENT_PROGRAM VALUES ( '5' , '3' , NULL , 1 , NOW(), NOW());
 INSERT INTO T_CONTENT_PROGRAM VALUES ( '6' , '2' , NULL , 2 , NOW(), NOW());
 INSERT INTO T_CONTENT_PROGRAM VALUES ( '7' , '1' , NULL , 3 , NOW(), NOW());
+
+-- IMAGE_ID , MAPPING_ID , IMAGE_TYPE 
+INSERT INTO T_IMAGE_META VALUES( '1' , '1' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '2' , '2' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '3' , '3' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '4' , '4' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '5' , '5' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '6' , '6' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '7' , '7' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '8' , '8' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '9' , '9' , 'contentBasic' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '14' , '5' , 'contentIssue' , now(),now());
+INSERT INTO T_IMAGE_META VALUES( '15' , '7' , 'contentTop' , now(),now());

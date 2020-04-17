@@ -33,7 +33,7 @@ public class Content implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	public enum ContentType {
-		top, basic, issue
+		contentTop, contentBasic, contentIssue
 	}
 	
 	@Id
@@ -128,12 +128,12 @@ public class Content implements Serializable {
 	
 	public void setContentType(String contentType) {
 		if ( contentType != null ) {
-			if ( "basic".equalsIgnoreCase(contentType)) {
-				this.contentType = ContentType.basic;
-			}else if ( "top".equalsIgnoreCase(contentType)) {
-				this.contentType = ContentType.top;
-			}else if ( "issue".equalsIgnoreCase(contentType)) {
-				this.contentType = ContentType.issue;
+			if ( "contentBasic".equalsIgnoreCase(contentType)) {
+				this.contentType = ContentType.contentBasic;
+			}else if ( "contentTop".equalsIgnoreCase(contentType)) {
+				this.contentType = ContentType.contentTop;
+			}else if ( "contentIssue".equalsIgnoreCase(contentType)) {
+				this.contentType = ContentType.contentIssue;
 			}
 		}
 	}
@@ -141,12 +141,12 @@ public class Content implements Serializable {
 	public static ContentType getContentTypeByString(String contentType) {
 		ContentType result = null ; 
 		if ( contentType != null ) {
-			if ( "basic".equalsIgnoreCase(contentType)) {
-				result = ContentType.basic;
-			}else if ( "top".equalsIgnoreCase(contentType)) {
-				result = ContentType.top;
-			}else if ( "issue".equalsIgnoreCase(contentType)) {
-				result = ContentType.issue;
+			if ( "contentBasic".equalsIgnoreCase(contentType)) {
+				result = ContentType.contentBasic;
+			}else if ( "contentTop".equalsIgnoreCase(contentType)) {
+				result = ContentType.contentTop;
+			}else if ( "contentIssue".equalsIgnoreCase(contentType)) {
+				result = ContentType.contentIssue;
 			}
 		}
 		return result ; 

@@ -36,7 +36,7 @@ public class ProgramController {
 	@RequestMapping(value = "/information/listAll" , method = RequestMethod.GET)
 	@ResponseBody
 	public TotalDto<ProgramDto> listAll(HttpServletRequest request , HttpServletResponse response){
-		TotalDto<ProgramDto> result = programService.findAll();
+		TotalDto<ProgramDto> result = programService.listAll();
 		result.settingTotalCount();
 		return result ;
 	} 

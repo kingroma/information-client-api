@@ -6,7 +6,11 @@ import information.client.api.form.ProgramForm;
 
 public interface ProgramService {
 
-	public TotalDto<ProgramDto> findAll() ;
+	public Integer countAll();
+	
+	public TotalDto<ProgramDto> listAll() ; 
+	
+	public TotalDto<ProgramDto> listAll( int offset , int limit ) ; 
 	
 	public ProgramDto findByIdWithProgramProduct(String programId) ;
 	

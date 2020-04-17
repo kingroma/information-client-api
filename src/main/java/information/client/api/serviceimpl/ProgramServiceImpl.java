@@ -30,10 +30,29 @@ public class ProgramServiceImpl implements ProgramService {
 	private ProgramDao programDao ;
 	
 	@Override
+	public Integer countAll() {
+		return programDao.countAll();
+	}
+	
+	@Override
 	@Transactional
-	public TotalDto<ProgramDto> findAll() {
+	public TotalDto<ProgramDto> listAll() {
 		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
 		List<Program> list = programDao.findAll();
+		
+		if ( list != null ) {
+			for ( Program p : list ) { 
+				result.add(domainToDto(p));
+			}
+		}
+		return result ; 
+	}
+	
+	@Override
+	@Transactional
+	public TotalDto<ProgramDto> listAll( int offset , int limit ) {
+		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
+		List<Program> list = programDao.findAll(offset,limit);
 		
 		if ( list != null ) {
 			for ( Program p : list ) { 

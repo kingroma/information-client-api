@@ -10,7 +10,7 @@ import information.client.api.domain.Program.ProgramType;
 import information.client.api.util.DomainUtil;
 
 public class ProgramTest {
-	private static ProgramType[] pt = {ProgramType.basic,ProgramType.series};
+	private static ProgramType[] pt = {ProgramType.programBasic,ProgramType.programSeries};
 	
 	public static void main(String[] args) {
 		insertProgram();
