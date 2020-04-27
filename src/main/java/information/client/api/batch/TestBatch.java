@@ -12,16 +12,17 @@ public class TestBatch extends Thread{
 	public TestBatch() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	// https://developer.riotgames.com/apis#match-v4
 	@Override
 	public void run() {
 		try {
 			while(true) {
 				System.out.println(new Date());
 				Thread.sleep(5000);
-				Response<Map<String,String>> response = RiotRetrofitClient.getTestRetrofitService().getTest("","").execute();
+				Response<Map<String,String>> response = RiotRetrofitClient.getTestRetrofitService().getTest("뀨송뀨송이").execute();
 				if ( response.isSuccessful() ) {
 					Map<String,String> map = response.body();
+					System.out.println(map.get("id"));
 				}else {
 					response.errorBody();
 					RestError re = (RestError)RiotRetrofitClient.getInstance().responseBodyConverter(RestError.class, RestError.class.getAnnotations()).convert(response.errorBody());

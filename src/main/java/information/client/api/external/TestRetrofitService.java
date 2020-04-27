@@ -4,13 +4,12 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 
 public interface TestRetrofitService {
 
-	@GET("getContents")
+	@GET("/lol/summoner/v4/summoners/by-name/{summonerName}")
 	public Call<Map<String,String>> getTest(
-			@Query("keywordType") String keywordType , 
-			@Query("keyword") String keyword 
+			@Path("summonerName") String summonerName  
 			);
 }

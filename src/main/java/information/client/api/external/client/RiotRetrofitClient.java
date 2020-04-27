@@ -13,7 +13,8 @@ import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
 public class RiotRetrofitClient {
-	private static final String BASE_URL = "";
+	private static final String token = "RGAPI-e4400613-bb76-4d37-b359-9a05d18f5d6c";
+	private static final String BASE_URL = "https://kr.api.riotgames.com";
 	
 	public static TestRetrofitService getTestRetrofitService() {
 		return getInstance().create(TestRetrofitService.class);
@@ -43,7 +44,7 @@ public class RiotRetrofitClient {
 
 	        return chain.proceed(
 	                chain.request().newBuilder()
-	                		.addHeader("tokenId", "a1a6scaeda3akfc4aba4d2ceh5acbagh")
+	                		.addHeader("X-Riot-Token", token)
 	                        .build()
 	        );
 	    }
