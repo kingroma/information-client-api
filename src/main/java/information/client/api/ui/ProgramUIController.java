@@ -1,5 +1,6 @@
 package information.client.api.ui;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -12,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import information.client.api.domain.Program;
+import information.client.api.responsedto.GenreDto;
 import information.client.api.responsedto.ProgramDto;
 import information.client.api.responsedto.TotalDto;
+import information.client.api.service.GenreService;
 import information.client.api.service.ProgramService;
 
 @Controller
+@RequestMapping("/ui/program")
 public class ProgramUIController {
 	private static final Logger logger = LoggerFactory.getLogger(ProgramUIController.class);
 	
@@ -25,9 +30,12 @@ public class ProgramUIController {
 	private static ObjectMapper om = new ObjectMapper();
 	
 	@Resource
-	private ProgramService programService ; 
+	private ProgramService programService ;
 	
-	@RequestMapping("/ui/program/list")
+	@Resource
+	private GenreService genreService ; 
+	
+	@RequestMapping("/list")
 	public String list(ModelMap model) {
 		int offset = 1 ;
 		
@@ -57,5 +65,17 @@ public class ProgramUIController {
 		model.addAttribute("count",programService.countAll());
 		
 		return "program/list";
+	} 
+	
+	@RequestMapping("/register")
+	public String register(ModelMap model) {
+		
+		List<GenreDto> genres = genreService.listAll();
+		model.addAttribute("genres",genres);
+		
+		Program.ProgramType programTypes[] = Program.ProgramType.values();
+		model.addAttribute("programTypes",programTypes);
+		
+		return "program/register";
 	} 
 }
