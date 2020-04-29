@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import information.client.api.external.TestRetrofitService;
+import information.client.api.external.RiotRetrofitService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -13,11 +13,11 @@ import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
 public class RiotRetrofitClient {
-	private static final String token = "RGAPI-e4400613-bb76-4d37-b359-9a05d18f5d6c";
+	private static final String token = "RGAPI-10692f3c-2728-4a48-a469-148628ce90ab";
 	private static final String BASE_URL = "https://kr.api.riotgames.com";
 	
-	public static TestRetrofitService getTestRetrofitService() {
-		return getInstance().create(TestRetrofitService.class);
+	public static RiotRetrofitService getRiotRetrofitService() {
+		return getInstance().create(RiotRetrofitService.class);
 	}
 	
 	public static Retrofit getInstance() {

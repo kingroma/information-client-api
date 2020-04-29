@@ -1,4 +1,4 @@
-INSERT INTO T_USER VALUES ( 'kingroma', '4235' ,'kjj', NOW() , now()) ;
+INSERT INTO T_USER VALUES ( 'kingroma', '4235' ,'kjj' ,'±è»õ¿ì', NOW() , now()) ;
 insert into T_USER_TOKEN values ( '7DKjtfw4ArN2HlrGq3Tl','kingroma',now(),now()) ;
 
 -- PROGRAM_ID , TITLE , PROGRAM_TYPE , SYNOPSIS , WATCH_COUNT , REGIST_DATE , UPDATE_DATE 
@@ -11,8 +11,6 @@ INSERT INTO T_PROGRAM VALUES( '6','TITLE6','programBasic','synopsis16',1,now(),n
 INSERT INTO T_PROGRAM VALUES( '7','TITLE7','programBasic','synopsis17',1,now(),now());
 INSERT INTO T_PROGRAM VALUES( '8','TITLE8','programSeries','synopsis8',5,now(),now());
 INSERT INTO T_PROGRAM VALUES( '9','TITLE9','programBasic','synopsis19',1,now(),now());
-
-
 
 -- PROGRAM_ID , PRODUCT_ID , TITLE , TEXT , SEASON , EPISODE , REGIST_DATE , UPDATE_DATE 
 INSERT INTO T_PROGRAM_PRODUCT VALUES ( '1','1' ,'TITL1','TEXT24',NULL,NULL,NOW(),NOW()) ;
@@ -97,3 +95,6 @@ INSERT INTO T_IMAGE_META VALUES( '8' , '8' , 'contentBasic' , now(),now());
 INSERT INTO T_IMAGE_META VALUES( '9' , '9' , 'contentBasic' , now(),now());
 INSERT INTO T_IMAGE_META VALUES( '14' , '5' , 'contentIssue' , now(),now());
 INSERT INTO T_IMAGE_META VALUES( '15' , '7' , 'contentTop' , now(),now());
+
+insert into t_code values('lol_season','13',null,null,null,null,now(),now());
+insert into t_code values('lol_version','10.8.1',null,null,null,null,now(),now());

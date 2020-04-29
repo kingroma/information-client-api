@@ -14,6 +14,7 @@ CREATE TABLE T_USER (
 	USER_ID VARCHAR(30) PRIMARY KEY , 
 	USER_PW VARCHAR(30) , 
 	USER_NM VARCHAR(30) , 
+	SUMMONER_ID VARCHAR(30) , 
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP
 );
@@ -33,6 +34,9 @@ public class User implements Serializable{
 	
 	@Column(name = "user_nm")
 	private String userNm ;
+
+	@Column(name = "summoner_id")
+	private String summonerId ; 
 	
 	@Column(name = "regist_date")
 	private Timestamp registDate ;
@@ -78,6 +82,14 @@ public class User implements Serializable{
 
 	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getSummonerId() {
+		return summonerId;
+	}
+
+	public void setSummonerId(String summonerId) {
+		this.summonerId = summonerId;
 	}
 	
 	

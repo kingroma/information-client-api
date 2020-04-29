@@ -16,19 +16,19 @@ public class TestBatch extends Thread{
 	@Override
 	public void run() {
 		try {
-			while(true) {
-				System.out.println(new Date());
-				Thread.sleep(5000);
-				Response<Map<String,String>> response = RiotRetrofitClient.getTestRetrofitService().getTest("뀨송뀨송이").execute();
-				if ( response.isSuccessful() ) {
-					Map<String,String> map = response.body();
-					System.out.println(map.get("id"));
-				}else {
-					response.errorBody();
-					RestError re = (RestError)RiotRetrofitClient.getInstance().responseBodyConverter(RestError.class, RestError.class.getAnnotations()).convert(response.errorBody());
-					String m = re.message;
-				}
-			}
+//			while(true) {
+//				System.out.println(new Date());
+//				Thread.sleep(5000);
+//				Response<Map<String,Object>> response = RiotRetrofitClient.getRiotRetrofitService().getSummonerInfoBySummonerName("뀨송뀨송이").execute();
+//				if ( response.isSuccessful() ) {
+//					Map<String,Object> map = response.body();
+//					System.out.println(map.get("id"));
+//				}else {
+//					response.errorBody();
+//					RestError re = (RestError)RiotRetrofitClient.getInstance().responseBodyConverter(RestError.class, RestError.class.getAnnotations()).convert(response.errorBody());
+//					String m = re.message;
+//				}
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 public interface TestRetrofitService {
 
 	@GET("/lol/summoner/v4/summoners/by-name/{summonerName}")
-	public Call<Map<String,String>> getTest(
+	public Call<Map<String,String>> getSummonerInfoBySummonerName(
 			@Path("summonerName") String summonerName  
 			);
 }

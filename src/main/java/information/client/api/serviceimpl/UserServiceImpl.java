@@ -9,10 +9,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Sort;
 
 import information.client.api.dao.UserDao;
+import information.client.api.dao.UserMatchHistDao;
+import information.client.api.dao.UserRankHistDao;
 import information.client.api.dao.UserTokenDao;
 import information.client.api.domain.User;
+import information.client.api.domain.UserMatchHist;
+import information.client.api.domain.UserRankHist;
 import information.client.api.domain.UserToken;
 import information.client.api.exception.LoginIdPwIncorrectException;
 import information.client.api.form.UserForm;
@@ -28,6 +33,17 @@ public class UserServiceImpl  implements UserService{
 	@Resource
 	private UserTokenDao userTokenDao ;
 
+	@Resource
+	private UserRankHistDao userRankHistDao ;
+	
+	@Resource
+	private UserMatchHistDao userMatchHistDao ; 
+	
+	@Override
+	public List<User> listAll() {
+		return userDao.findAll();
+	}
+	
 	@Override
 	@Transactional
 	public String login(UserForm form) throws Exception , LoginIdPwIncorrectException{
@@ -89,6 +105,48 @@ public class UserServiceImpl  implements UserService{
 			result = true ;
 		}
 		
+		return result ; 
+	}
+	
+	@Transactional
+	public boolean saveUserRankHist(UserRankHist entity) {
+		boolean result = true ; 
+		userRankHistDao.save(entity);
+		return result ; 
+	}
+	
+	public UserMatchHist getUserMatchHist(String userId , String matchId) {
+		
+		UserMatchHist entity = null ; 
+		List<UserMatchHist> list = userMatchHistDao.find(
+				Filter.equal("id.userId", userId) ,
+				Filter.equal("id.matchId", matchId)
+				);
+		
+		if ( list != null && list.size() > 0 ) {
+			entity = list.get(0);
+		}
+		
+		return entity ;
+	}
+	
+	public Long getMaxMatchTime(String userId) {
+		Long result = null ; 
+		Filter filters = Filter.equal("id.userId", userId);
+		Sort sort = new Sort("matchTime",true);
+		List<UserMatchHist> list = userMatchHistDao.find(sort,filters);
+		
+		if ( list != null && list.size() > 0) {
+			result = DomainUtil.yyyyMmDdHhMmSsToLong(list.get(0).getMatchTime());
+		}
+		return result ; 
+	}
+	
+	
+	@Transactional
+	public boolean saveUserMatchHist(UserMatchHist entity) {
+		boolean result = true ; 
+		userMatchHistDao.save(entity);
 		return result ; 
 	}
 }
