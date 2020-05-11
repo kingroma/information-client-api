@@ -3,6 +3,8 @@ package information.client.api.responsedto;
 public class ResponseDto<T> {
 	public static final String SUCCESS_CODE = "200";
 	
+	public static final String NOT_FOUND = "300";
+	
 	public static final String PARAMETER_ERROR_CODE = "400";
 	
 	public static final String ERROR_CODE = "500";

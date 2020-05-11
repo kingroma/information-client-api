@@ -15,8 +15,9 @@ import information.client.api.domain.ProgramProductPK;
 @Repository
 public class ProgramProductDaoImpl extends BaseDaoImpl<ProgramProduct,ProgramProductPK> implements ProgramProductDao{
 	public ProgramProduct findById(String productId) {
-		List<ProgramProduct> programProducts = find(Filter.equal("productId", productId));
+		List<ProgramProduct> programProducts = find(Filter.equal("id.productId", productId));
 		
-		return programProducts.isEmpty() ? null : programProducts.get(0);
+		return programProducts == null || programProducts.isEmpty() ? 
+				null : programProducts.get(0);
 	}
 }

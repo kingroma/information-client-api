@@ -30,7 +30,7 @@ public class SimpleBatchController {
 		UserRankHistBatch batch1 = new UserRankHistBatch();
 		batch1.setUserService(userService);
 		batch1.setCodeService(codeService);
-		batch1.start();
+//		batch1.start();
 		
 		UserMatchHistBatch batch2 = new UserMatchHistBatch();
 		batch2.setUserService(userService);

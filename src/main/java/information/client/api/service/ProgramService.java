@@ -12,7 +12,7 @@ public interface ProgramService {
 	
 	public TotalDto<ProgramDto> listAll( int offset , int limit ) ; 
 	
-	public ProgramDto findByIdWithProgramProduct(String programId) ;
+	public ProgramDto getByIdWithProgramProduct(String programId) ;
 	
 	public ProgramDto save(ProgramForm form);
 }

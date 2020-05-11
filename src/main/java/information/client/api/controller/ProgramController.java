@@ -53,8 +53,16 @@ public class ProgramController {
 		ProgramDto dto = null ; 
 		
 		if ( programId != null && !programId.isEmpty() ) {
-			dto = programService.findByIdWithProgramProduct(programId);
-			result.setResult(dto);
+			dto = programService.getByIdWithProgramProduct(programId);
+			if ( dto == null ) {
+				result.setResultCode(ResponseDto.NOT_FOUND);
+				result.setResultMessage("Not Found");
+			}else {
+				result.setResult(dto);
+			}
+		} else {
+			result.setResultCode(ResponseDto.PARAMETER_ERROR_CODE);
+			result.setResultMessage("programId is null");
 		}
 		
 		return result ;
@@ -72,8 +80,17 @@ public class ProgramController {
 		ProgramProductDto dto = null ; 
 		
 		if ( productId != null && !productId.isEmpty() ) {
-			dto = programProductService.findById(productId);
-			result.setResult(dto);
+			dto = programProductService.getById(productId);
+			
+			if ( dto == null ) {
+				result.setResultCode(ResponseDto.NOT_FOUND);
+				result.setResultMessage("Not Found");
+			}else {
+				result.setResult(dto);
+			}
+		} else {
+			result.setResultCode(ResponseDto.PARAMETER_ERROR_CODE);
+			result.setResultMessage("productId is null");
 		}
 		
 		return result ; 

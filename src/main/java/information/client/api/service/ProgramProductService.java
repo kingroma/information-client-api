@@ -6,5 +6,5 @@ import information.client.api.responsedto.TotalDto;
 public interface ProgramProductService {
 	public TotalDto<ProgramProductDto> findAll();
 	
-	public ProgramProductDto findById(String productId);
+	public ProgramProductDto getById(String productId);
 }

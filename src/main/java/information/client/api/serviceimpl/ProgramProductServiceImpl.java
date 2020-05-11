@@ -34,7 +34,7 @@ public class ProgramProductServiceImpl implements ProgramProductService{
 	
 	@Override
 	@Transactional
-	public ProgramProductDto findById(String productId) { 
+	public ProgramProductDto getById(String productId) { 
 		ProgramProduct pp = null ; 
 		ProgramProductDto dto = null ; 
 		
@@ -49,6 +49,12 @@ public class ProgramProductServiceImpl implements ProgramProductService{
 	
 	private ProgramProductDto domainToDto(ProgramProduct p) {
 		ProgramProductDto dto = new ProgramProductDto();
+		
+		dto.setProductId(p.getId().getProductId());
+		dto.setProgramId(p.getId().getProgramId());
+		dto.setTitle(p.getTitle());
+		dto.setText(p.getText());
+		dto.setSeason(p.getSeason());
 		
 		return dto ; 
 	}

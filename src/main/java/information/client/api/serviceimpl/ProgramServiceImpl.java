@@ -64,7 +64,7 @@ public class ProgramServiceImpl implements ProgramService {
 	
 	@Override
 	@Transactional
-	public ProgramDto findByIdWithProgramProduct(String programId) {
+	public ProgramDto getByIdWithProgramProduct(String programId) {
 		Program p = null ;
 		ProgramDto dto = null ; 
 		
