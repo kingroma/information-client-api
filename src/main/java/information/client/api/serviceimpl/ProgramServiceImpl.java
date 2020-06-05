@@ -10,13 +10,19 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.googlecode.genericdao.search.Filter;
+
+import information.client.api.dao.ImageMetaDao;
 import information.client.api.dao.ProgramDao;
 import information.client.api.domain.Genre;
+import information.client.api.domain.ImageMeta;
 import information.client.api.domain.Program;
 import information.client.api.domain.ProgramGenre;
 import information.client.api.domain.ProgramProduct;
 import information.client.api.form.ProgramForm;
+import information.client.api.responsedto.ImageMetaDto;
 import information.client.api.responsedto.ProgramDto;
+import information.client.api.responsedto.ProgramImageMetaDto;
 import information.client.api.responsedto.ProgramProductDto;
 import information.client.api.responsedto.TotalDto;
 import information.client.api.service.ProgramService;
@@ -28,6 +34,9 @@ public class ProgramServiceImpl implements ProgramService {
 	
 	@Resource
 	private ProgramDao programDao ;
+	
+	@Resource 
+	private ImageMetaDao imageMetaDao;
 	
 	@Override
 	public Integer countAll() {
@@ -108,6 +117,27 @@ public class ProgramServiceImpl implements ProgramService {
 		dto.setTitle(p.getTitle());
 		dto.setSynopsis(p.getSynopsis());
 		dto.setProgramType(p.getProgramType());
+		
+		Filter[] imageMetaFilters = {
+				Filter.equal("mappingId", p.getProgramId()), 
+				Filter.equal("imageType", p.getProgramType() )
+			};
+	
+		List<ImageMeta> imageMetaList = imageMetaDao.find(imageMetaFilters);
+		List<ProgramImageMetaDto> programImageMetaDtoList = new ArrayList<ProgramImageMetaDto>();
+		
+		if ( imageMetaList != null ) {
+			for ( ImageMeta im : imageMetaList ) {
+				ProgramImageMetaDto programImageMetaDto = new ProgramImageMetaDto();
+				
+				programImageMetaDto.setImageId(im.getImageId());
+				programImageMetaDto.setImageType(im.getImageType());
+				programImageMetaDto.setMappingId(im.getMappingId());
+				
+				programImageMetaDtoList.add(programImageMetaDto);
+			}
+			dto.setImageMeta(programImageMetaDtoList);
+		}
 		
 		List<String> genres = new ArrayList<String>();
 		List<ProgramProductDto> programProducts = new ArrayList<ProgramProductDto>();

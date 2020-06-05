@@ -15,6 +15,8 @@ public class ProgramDto {
 	
 	private List<ProgramProductDto> products;
 	
+	private List<ProgramImageMetaDto> imageMeta ;
+	
 	public String getProgramId() {
 		return programId;
 	}
@@ -63,5 +65,14 @@ public class ProgramDto {
 		this.products = products;
 	}
 
+	public List<ProgramImageMetaDto> getImageMeta() {
+		return imageMeta;
+	}
+
+	public void setImageMeta(List<ProgramImageMetaDto> imageMeta) {
+		this.imageMeta = imageMeta;
+	}
+
+	
 
 }

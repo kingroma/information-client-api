@@ -20,7 +20,8 @@ public class BaseInterceptor implements HandlerInterceptor{
 
 	private final String[] PASS_URL = {
 		"/user"	,
-		"/ui"
+		"/ui",
+		"/image"
 	};
 	
 	@Autowired
@@ -78,7 +79,7 @@ public class BaseInterceptor implements HandlerInterceptor{
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		
+		response.setHeader("Access-Control-Allow-Origin", "*");
 	}
 	
 	// controller의 handler가 끝나면 처리됨
