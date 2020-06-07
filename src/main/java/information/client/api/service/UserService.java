@@ -24,4 +24,5 @@ public interface UserService{
 	public Long getMaxMatchTime(String userId); 
 	
 	public boolean saveUserMatchHist(UserMatchHist entity);
+	
 }
