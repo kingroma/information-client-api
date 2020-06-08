@@ -1,5 +1,7 @@
 package information.client.api.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import information.client.api.responsedto.MusicMetaDto;
 import information.client.api.responsedto.ResponseDto;
+import information.client.api.responsedto.TotalDto;
+import information.client.api.responsedto.UserMusicBoxDto;
 import information.client.api.service.MusicMetaService;
 
 @Controller
@@ -48,6 +52,26 @@ public class MusicController {
 		} else {
 			result.setResultCode(ResponseDto.PARAMETER_ERROR_CODE);
 			result.setResultMessage("musicId is null");
+		}
+		
+		return result; 
+	}
+	
+	@RequestMapping(value = "/box/{USER_ID}", method = RequestMethod.GET)
+	@ResponseBody
+	public TotalDto<UserMusicBoxDto> getUserMusicBox(
+			HttpServletRequest request , HttpServletResponse response ,
+			@PathVariable("USER_ID") String userId 
+			){
+		logger.info("userId = {}" , userId);
+		
+		TotalDto<UserMusicBoxDto> result = new TotalDto<UserMusicBoxDto>();
+
+		if ( userId != null && !userId.isEmpty()){
+			result.setResult(musicMetaService.getUserMusicBox(userId));
+			result.settingTotalCount();
+		} else {
+			result.setResultCode(ResponseDto.PARAMETER_ERROR_CODE);
 		}
 		
 		return result; 
