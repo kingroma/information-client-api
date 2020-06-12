@@ -1,0 +1,209 @@
+[
+	{
+		"programId": "1",
+		"title": "TITLE1",
+		"synopsis": "synopsis1",
+		"programType": "programBasic",
+		"genres": [
+			"NM1",
+			"NM5"
+		],
+		"products": [
+			{
+				"programId": "1",
+				"productId": "1",
+				"title": "TITL1",
+				"text": "TEXT24",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "2",
+		"title": "TITLE2",
+		"synopsis": "synopsis2",
+		"programType": "programSeries",
+		"genres": [
+			"NM8"
+		],
+		"products": [
+			{
+				"programId": "2",
+				"productId": "2",
+				"title": "TITL2",
+				"text": "TEXT23",
+				"season": "1",
+				"episode": "1"
+			},
+			{
+				"programId": "2",
+				"productId": "3",
+				"title": "TITL4",
+				"text": "TEXT22",
+				"season": "1",
+				"episode": "2"
+			},
+			{
+				"programId": "2",
+				"productId": "4",
+				"title": "TITL6",
+				"text": "TEXT21",
+				"season": "2",
+				"episode": "1"
+			}
+		]
+	},
+	{
+		"programId": "3",
+		"title": "TITLE13",
+		"synopsis": "synopsis3",
+		"programType": "programBasic",
+		"genres": [
+			"NM1",
+			"NM7"
+		],
+		"products": [
+			{
+				"programId": "3",
+				"productId": "5",
+				"title": "TITL6",
+				"text": "TEXT20",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "4",
+		"title": "TITLE4",
+		"synopsis": "synopsis4",
+		"programType": "programBasic",
+		"genres": [
+			"NM6"
+		],
+		"products": [
+			{
+				"programId": "4",
+				"productId": "6",
+				"title": "TITL3",
+				"text": "TEXT19",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "5",
+		"title": "TITLE51",
+		"synopsis": "synopsis5",
+		"programType": "programBasic",
+		"genres": [
+			"NM5"
+		],
+		"products": [
+			{
+				"programId": "5",
+				"productId": "7",
+				"title": "TITL1",
+				"text": "TEXT18",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "6",
+		"title": "TITLE6",
+		"synopsis": "synopsis16",
+		"programType": "programBasic",
+		"genres": [
+			"NM8",
+			"NM4"
+		],
+		"products": [
+			{
+				"programId": "6",
+				"productId": "8",
+				"title": "TITL1",
+				"text": "TEXT17",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "7",
+		"title": "TITLE7",
+		"synopsis": "synopsis17",
+		"programType": "programBasic",
+		"genres": [
+			"NM8",
+			"NM3"
+		],
+		"products": [
+			{
+				"programId": "7",
+				"productId": "9",
+				"title": "TITL1",
+				"text": "TEXT16",
+				"season": null,
+				"episode": null
+			}
+		]
+	},
+	{
+		"programId": "8",
+		"title": "TITLE8",
+		"synopsis": "synopsis8",
+		"programType": "programSeries",
+		"genres": [
+			"NM2"
+		],
+		"products": [
+			{
+				"programId": "8",
+				"productId": "10",
+				"title": "TITL1",
+				"text": "TEXT15",
+				"season": "1",
+				"episode": "1"
+			},
+			{
+				"programId": "8",
+				"productId": "11",
+				"title": "TITL2",
+				"text": "TEXT14",
+				"season": "1",
+				"episode": "2"
+			},
+			{
+				"programId": "8",
+				"productId": "12",
+				"title": "TITL1",
+				"text": "TEXT13",
+				"season": "1",
+				"episode": "3"
+			}
+		]
+	},
+	{
+		"programId": "9",
+		"title": "TITLE9",
+		"synopsis": "synopsis19",
+		"programType": "programBasic",
+		"genres": [
+			"NM1"
+		],
+		"products": [
+			{
+				"programId": "9",
+				"productId": "13",
+				"title": "TITL1",
+				"text": "TEXT12",
+				"season": null,
+				"episode": null
+			}
+		]
+	}
+] 
