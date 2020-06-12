@@ -72,6 +72,20 @@ public class ProgramServiceImpl implements ProgramService {
 	}
 	
 	@Override
+	public List<ProgramDto> search(String search){
+		List<Program> list = programDao.find(Filter.like("title", "%" + search + "%"));
+		
+		List<ProgramDto> result = new ArrayList<ProgramDto>();
+		if ( list != null  && list.size() > 0 ) {
+			for ( Program p : list ) {
+				result.add(domainToDto(p));
+			}
+		}
+		
+		return result ; 
+	}
+	
+	@Override
 	@Transactional
 	public ProgramDto getByIdWithProgramProduct(String programId) {
 		Program p = null ;

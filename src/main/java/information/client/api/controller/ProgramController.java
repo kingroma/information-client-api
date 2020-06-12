@@ -41,6 +41,22 @@ public class ProgramController {
 		return result ;
 	} 
 	
+	@RequestMapping(value = "/search/{SEARCH}" , method = RequestMethod.GET)
+	@ResponseBody
+	public TotalDto<ProgramDto> getSearch(
+			HttpServletRequest request , HttpServletResponse response ,
+			 @PathVariable("SEARCH") String search ){
+		TotalDto<ProgramDto> result = new TotalDto<ProgramDto>();
+		
+		if ( search != null && !search.isEmpty() ) {
+			result.setResult(programService.search(search));
+		} else {
+			result.setResultCode(TotalDto.ERROR_CODE);
+		}
+		
+		return result ; 
+	}
+	
 	@RequestMapping(value = "/information/{PROGRAM_ID}" , method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseDto<ProgramDto> getInformation(

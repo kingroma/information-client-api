@@ -7,7 +7,7 @@ import information.client.api.domain.ContentProgram;
 public class ContentProgramSortASC implements Comparator<ContentProgram> {
 	@Override
 	public int compare(ContentProgram o1, ContentProgram o2) {
-		if ( o1 != null && o2 != null ) {
+		if ( o1 != null && o1.getSortSn() != null && o2 != null && o2.getSortSn() != null ) {
 			int arg1 = o1.getSortSn();
 			int arg2 = o2.getSortSn();
 			

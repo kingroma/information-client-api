@@ -55,23 +55,18 @@ public class BaseInterceptor implements HandlerInterceptor{
 		
 		String token = request.getParameter(TOKEN_PARAMETER);
 		
-		boolean authCheck = false ; 
-		if ( token != null && !token.isEmpty() ) {
-			authCheck = userService.authUserToken(token);
-		}else {
-			logger.info("Token is empty");
-		}
-		
-		if ( authCheck == false ) {
-			result = false ; 
-			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-			
-//			ModelAndView mav = new ModelAndView("user/login");
-//            mav.addObject("message", "추가 에트리뷰트");
-//
-//            throw new ModelAndViewDefiningException(mav);
-		}
-		
+//		boolean authCheck = false ; 
+//		if ( token != null && !token.isEmpty() ) {
+//			authCheck = userService.authUserToken(token);
+//		}else {
+//			logger.info("Token is empty");
+//		}
+//		
+//		if ( authCheck == false ) {
+//			result = false ; 
+//			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//			
+//		}
 		return result ;
 	}
 	

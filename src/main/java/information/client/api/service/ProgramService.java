@@ -1,8 +1,10 @@
 package information.client.api.service;
 
+import java.util.List;
+
+import information.client.api.form.ProgramForm;
 import information.client.api.responsedto.ProgramDto;
 import information.client.api.responsedto.TotalDto;
-import information.client.api.form.ProgramForm;
 
 public interface ProgramService {
 
@@ -10,7 +12,9 @@ public interface ProgramService {
 	
 	public TotalDto<ProgramDto> listAll() ; 
 	
-	public TotalDto<ProgramDto> listAll( int offset , int limit ) ; 
+	public TotalDto<ProgramDto> listAll( int offset , int limit ) ;
+	
+	public List<ProgramDto> search(String search); 
 	
 	public ProgramDto getByIdWithProgramProduct(String programId) ;
 	
