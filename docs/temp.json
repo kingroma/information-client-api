@@ -1,209 +1,178 @@
-[
-	{
-		"programId": "1",
-		"title": "TITLE1",
-		"synopsis": "synopsis1",
-		"programType": "programBasic",
-		"genres": [
-			"NM1",
-			"NM5"
-		],
-		"products": [
-			{
-				"programId": "1",
-				"productId": "1",
-				"title": "TITL1",
-				"text": "TEXT24",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "2",
-		"title": "TITLE2",
-		"synopsis": "synopsis2",
-		"programType": "programSeries",
-		"genres": [
-			"NM8"
-		],
-		"products": [
-			{
-				"programId": "2",
-				"productId": "2",
-				"title": "TITL2",
-				"text": "TEXT23",
-				"season": "1",
-				"episode": "1"
-			},
-			{
-				"programId": "2",
-				"productId": "3",
-				"title": "TITL4",
-				"text": "TEXT22",
-				"season": "1",
-				"episode": "2"
-			},
-			{
-				"programId": "2",
-				"productId": "4",
-				"title": "TITL6",
-				"text": "TEXT21",
-				"season": "2",
-				"episode": "1"
-			}
-		]
-	},
-	{
-		"programId": "3",
-		"title": "TITLE13",
-		"synopsis": "synopsis3",
-		"programType": "programBasic",
-		"genres": [
-			"NM1",
-			"NM7"
-		],
-		"products": [
-			{
-				"programId": "3",
-				"productId": "5",
-				"title": "TITL6",
-				"text": "TEXT20",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "4",
-		"title": "TITLE4",
-		"synopsis": "synopsis4",
-		"programType": "programBasic",
-		"genres": [
-			"NM6"
-		],
-		"products": [
-			{
-				"programId": "4",
-				"productId": "6",
-				"title": "TITL3",
-				"text": "TEXT19",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "5",
-		"title": "TITLE51",
-		"synopsis": "synopsis5",
-		"programType": "programBasic",
-		"genres": [
-			"NM5"
-		],
-		"products": [
-			{
-				"programId": "5",
-				"productId": "7",
-				"title": "TITL1",
-				"text": "TEXT18",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "6",
-		"title": "TITLE6",
-		"synopsis": "synopsis16",
-		"programType": "programBasic",
-		"genres": [
-			"NM8",
-			"NM4"
-		],
-		"products": [
-			{
-				"programId": "6",
-				"productId": "8",
-				"title": "TITL1",
-				"text": "TEXT17",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "7",
-		"title": "TITLE7",
-		"synopsis": "synopsis17",
-		"programType": "programBasic",
-		"genres": [
-			"NM8",
-			"NM3"
-		],
-		"products": [
-			{
-				"programId": "7",
-				"productId": "9",
-				"title": "TITL1",
-				"text": "TEXT16",
-				"season": null,
-				"episode": null
-			}
-		]
-	},
-	{
-		"programId": "8",
-		"title": "TITLE8",
-		"synopsis": "synopsis8",
-		"programType": "programSeries",
-		"genres": [
-			"NM2"
-		],
-		"products": [
-			{
-				"programId": "8",
-				"productId": "10",
-				"title": "TITL1",
-				"text": "TEXT15",
-				"season": "1",
-				"episode": "1"
-			},
-			{
-				"programId": "8",
-				"productId": "11",
-				"title": "TITL2",
-				"text": "TEXT14",
-				"season": "1",
-				"episode": "2"
-			},
-			{
-				"programId": "8",
-				"productId": "12",
-				"title": "TITL1",
-				"text": "TEXT13",
-				"season": "1",
-				"episode": "3"
-			}
-		]
-	},
-	{
-		"programId": "9",
-		"title": "TITLE9",
-		"synopsis": "synopsis19",
-		"programType": "programBasic",
-		"genres": [
-			"NM1"
-		],
-		"products": [
-			{
-				"programId": "9",
-				"productId": "13",
-				"title": "TITL1",
-				"text": "TEXT12",
-				"season": null,
-				"episode": null
-			}
-		]
-	}
-] 
+{
+	"resultCode": "200",
+	"totalCount": 2,
+	"result": [
+		{
+			"contentId": "CTV0jstpPl0CA7zkmydB",
+			"contentName": "MARVEL",
+			"contentType": "contentBasic",
+			"list": [
+				{
+					"programId": "4QVSpYFnug9cLdwQHEfJ",
+					"title": "스파이더맨: 홈커밍",
+					"imageMeta": [
+						{
+							"imageId": "yR0zccPDRCmxrPBvWZ4g",
+							"mappingId": "4QVSpYFnug9cLdwQHEfJ",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "9x8kIR3HYeAxfrlXWbfl",
+					"title": "가디언즈 오브 갤럭시",
+					"imageMeta": [
+						{
+							"imageId": "J8V4Myw6YBQSSk03f9lB",
+							"mappingId": "9x8kIR3HYeAxfrlXWbfl",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "a6wfyUYIM0uvTP3wBU4I",
+					"title": "어벤져스: 엔드게임",
+					"imageMeta": [
+						{
+							"imageId": "EbEIpd3VpuewfteHdWPq",
+							"mappingId": "a6wfyUYIM0uvTP3wBU4I",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "B4kPsP6TNXB2Wth0PWvn",
+					"title": "블랙팬서",
+					"imageMeta": [
+						{
+							"imageId": "PgLkdTg7qveXBN3OiD0E",
+							"mappingId": "B4kPsP6TNXB2Wth0PWvn",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "FrlptGN8unhuJHJDhiPl",
+					"title": "가디언즈 오브 갤럭시 VOL.2",
+					"imageMeta": [
+						{
+							"imageId": "17fLBSRZO1gjUQySZfRt",
+							"mappingId": "FrlptGN8unhuJHJDhiPl",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "ghkk5XTIZ91aTViMj3fL",
+					"title": "아이언맨3",
+					"imageMeta": [
+						{
+							"imageId": "gSwwt5a648OFzXiw2NOu",
+							"mappingId": "ghkk5XTIZ91aTViMj3fL",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "GWZg7n8fzzsZiPOfOhs1",
+					"title": "어벤져스: 에이지 오브 울트론",
+					"imageMeta": [
+						{
+							"imageId": "5AhUHGsvO8Ym4xBn31sB",
+							"mappingId": "GWZg7n8fzzsZiPOfOhs1",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "OfZsj6LOLX31EjfSMGIK",
+					"title": "아이언맨2",
+					"imageMeta": [
+						{
+							"imageId": "qhKwD2McRX6qfVdWCObB",
+							"mappingId": "OfZsj6LOLX31EjfSMGIK",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "vFMaA4kha7xe09u6C3BG",
+					"title": "어벤져스: 인피니티 워",
+					"imageMeta": [
+						{
+							"imageId": "AT1MLIoNveSWYPfF2nEt",
+							"mappingId": "vFMaA4kha7xe09u6C3BG",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "WKE8NfEIsJqrWhBfksQV",
+					"title": "아이언맨",
+					"imageMeta": [
+						{
+							"imageId": "Lgt1jLfKRkhVRItTjJrp",
+							"mappingId": "WKE8NfEIsJqrWhBfksQV",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "yO1uRw0RwkKaoXK7iTqK",
+					"title": "어벤져스",
+					"imageMeta": [
+						{
+							"imageId": "JFcA0WRKJ6E0EMTyP2MX",
+							"mappingId": "yO1uRw0RwkKaoXK7iTqK",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "Zz5RGtKJ1FxNCDuBDETy",
+					"title": "스파이더맨: 파 프롬 홈",
+					"imageMeta": [
+						{
+							"imageId": "5Wo2gtzvAfmpVHEdqXh2",
+							"mappingId": "Zz5RGtKJ1FxNCDuBDETy",
+							"imageType": "contentBasic"
+						}
+					]
+				}
+			],
+			"useAt": "Y",
+			"sortSn": "1"
+		},
+		{
+			"contentId": "2Nits1EhZaCGC4A8i6nw",
+			"contentName": "우주",
+			"contentType": "contentBasic",
+			"list": [
+				{
+					"programId": "9x8kIR3HYeAxfrlXWbfl",
+					"title": "가디언즈 오브 갤럭시",
+					"imageMeta": [
+						{
+							"imageId": "J8V4Myw6YBQSSk03f9lB",
+							"mappingId": "9x8kIR3HYeAxfrlXWbfl",
+							"imageType": "contentBasic"
+						}
+					]
+				},
+				{
+					"programId": "FrlptGN8unhuJHJDhiPl",
+					"title": "가디언즈 오브 갤럭시 VOL.2",
+					"imageMeta": [
+						{
+							"imageId": "17fLBSRZO1gjUQySZfRt",
+							"mappingId": "FrlptGN8unhuJHJDhiPl",
+							"imageType": "contentBasic"
+						}
+					]
+				}
+			],
+			"useAt": "Y",
+			"sortSn": "2"
+		}
+	]
+}

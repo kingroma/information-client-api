@@ -72,6 +72,7 @@ public class ProgramServiceImpl implements ProgramService {
 	}
 	
 	@Override
+	@Transactional
 	public List<ProgramDto> search(String search){
 		List<Program> list = programDao.find(Filter.like("title", "%" + search + "%"));
 		
@@ -131,6 +132,7 @@ public class ProgramServiceImpl implements ProgramService {
 		dto.setTitle(p.getTitle());
 		dto.setSynopsis(p.getSynopsis());
 		dto.setProgramType(p.getProgramType());
+		dto.setUseAt(p.getUseAt());
 		
 		Filter[] imageMetaFilters = {
 				Filter.equal("mappingId", p.getProgramId()), 
@@ -179,6 +181,28 @@ public class ProgramServiceImpl implements ProgramService {
 				ppDto.setText(pp.getText());
 				ppDto.setSeason(pp.getSeason());
 				ppDto.setEpisode(pp.getEpisode());
+				ppDto.setUseAt(pp.getUseAt());
+				
+				Filter[] imageMetaFilters2 = {
+						Filter.equal("mappingId", pp.getId().getProductId()), 
+						Filter.equal("imageType", p.getProgramType() )
+					};
+			
+				List<ImageMeta> imageMetaList2 = imageMetaDao.find(imageMetaFilters2);
+				List<ImageMetaDto> programImageMetaDtoList2 = new ArrayList<ImageMetaDto>();
+				
+				if ( imageMetaList2 != null ) {
+					for ( ImageMeta im : imageMetaList2 ) {
+						ImageMetaDto imageMetaDto = new ImageMetaDto();
+						
+						imageMetaDto.setImageId(im.getImageId());
+						imageMetaDto.setImageType(im.getImageType());
+						imageMetaDto.setMappingId(im.getMappingId());
+						
+						programImageMetaDtoList2.add(imageMetaDto);
+					}
+					ppDto.setImageMeta(programImageMetaDtoList2);
+				}
 				
 				programProducts.add(ppDto);
 			}

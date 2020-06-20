@@ -21,6 +21,7 @@ CREATE TABLE T_PROGRAM (
 	PROGRAM_TYPE VARCHAR(30) , 
 	SYNOPSIS VARCHAR(200) , 
 	WATCH_COUNT INT ,
+	USE_AT VARCHAR(1) DEFAULT 'Y' , 
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP 
 ) ;
@@ -56,6 +57,9 @@ public class Program implements Serializable {
 	
 	@Column(name = "update_date")
 	private Timestamp updateDate ;
+	
+	@Column(name = "use_at")
+	private String useAt ;
 	
 	@OneToMany(mappedBy = "progarm",fetch=FetchType.LAZY)
 	private List<ProgramGenre> programGenre ;
@@ -133,6 +137,18 @@ public class Program implements Serializable {
 
 	public void setWatchCount(Integer watchCount) {
 		this.watchCount = watchCount;
+	}
+
+	public String getUseAt() {
+		return useAt;
+	}
+
+	public void setUseAt(String useAt) {
+		this.useAt = useAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override

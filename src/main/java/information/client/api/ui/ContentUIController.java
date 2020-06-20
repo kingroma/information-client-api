@@ -1,12 +1,11 @@
 package information.client.api.ui;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,30 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import information.client.api.form.ProgramUiForm;
-import information.client.api.responsedto.ProgramDto;
+import information.client.api.form.ContentUiForm;
+import information.client.api.responsedto.ContentDto;
 import information.client.api.responsedto.TotalDto;
-import information.client.api.service.GenreService;
-import information.client.api.service.ProgramService;
-import information.client.api.service.ProgramUiService;
+import information.client.api.service.ContentService;
+import information.client.api.service.ContentUiService;
 
 @Controller
-@RequestMapping("/ui/program")
-public class ProgramUIController {
-	private static final Logger logger = LoggerFactory.getLogger(ProgramUIController.class);
-	
-	private static int LIMIT = 1000;
+@RequestMapping("/ui/content")
+public class ContentUIController {
+	private static int LIMIT = 1000 ; 
 	
 	private static ObjectMapper om = new ObjectMapper();
 	
 	@Resource
-	private ProgramService programService ;
+	private ContentService contentService;
 	
-	@Resource
-	private GenreService genreService ; 
-	
-	@Resource
-	private ProgramUiService programUiService ; 
+	@Resource 
+	private ContentUiService contentUiService ; 
 	
 	@RequestMapping("/list")
 	public String list(ModelMap model) {
@@ -54,27 +47,30 @@ public class ProgramUIController {
 		
 		offset--;
 		
-		TotalDto<ProgramDto> list = programService.listAll(offset, LIMIT);
-		list.settingTotalCount();
+		List<ContentDto> list = contentService.listAll(offset, LIMIT);
+		TotalDto<ContentDto> result = new TotalDto<ContentDto>();
+		result.setResult(list);
+		result.settingTotalCount();
 		
 		String json = "{}" ;
 		Map<String,Object> map = null ; 
 		try {
-			json = om.writeValueAsString(list);
+			json = om.writeValueAsString(result);
 			map = om.readValue(json, Map.class);
+			System.out.println(json);
 		} catch (Exception e) {	e.printStackTrace(); }
 		
 		
 		model.addAttribute("list",map);
-		model.addAttribute("count",list.getTotalCount());
+		model.addAttribute("count",result.getTotalCount());
 		
-		return "program/programList";
-	} 
+		return "content/contentList";
+	}
 	
 	@RequestMapping("/save")
 	public String save(
 			HttpServletRequest request ,
-			@ModelAttribute ProgramUiForm form 
+			@ModelAttribute ContentUiForm form 
 			) {
 		// 파일 크기 15MB로 제한
 		int sizeLimit = 1024*1024*15;
@@ -88,10 +84,8 @@ public class ProgramUIController {
 		
 		
 		System.out.println(form);
-		programUiService.save(form);
+		contentUiService.save(form);
 		
-		return "redirect:/ui/program/list";
+		return "redirect:/ui/content/list";
 	} 
-	
-	
 }

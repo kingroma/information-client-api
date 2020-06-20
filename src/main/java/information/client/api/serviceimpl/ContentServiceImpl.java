@@ -55,6 +55,22 @@ public class ContentServiceImpl implements ContentService{
 	
 	@Override
 	@Transactional
+	public List<ContentDto> listAll( int offset , int limit ){
+		List<ContentDto> result = new ArrayList<ContentDto>();
+		
+		Sort sort = new Sort("sortSn");
+		List<Content> list = contentDao.findAll(sort,offset,limit);
+		
+		if ( list != null ) {
+			for ( Content c : list ) { 
+				result.add(domainToDto(c));
+			}
+		}
+		return result ; 
+	}
+	
+	@Override
+	@Transactional
 	public List<ContentDto> list(String contentType) {
 		List<ContentDto> result = new ArrayList<ContentDto>();
 		
@@ -80,7 +96,8 @@ public class ContentServiceImpl implements ContentService{
 			contentDto.setContentId(c.getContentId());
 			contentDto.setContentName(c.getContentName());
 			contentDto.setContentType(c.getContentType().toString());
-			
+			contentDto.setSortSn(c.getSortSn().toString());
+			contentDto.setUseAt(c.getUseAt());
 			List<ContentProgram> contentProgramList = c.getContentProgram();
 			
 			if ( contentProgramList != null && contentProgramList.size() > 0 ) {
@@ -91,13 +108,16 @@ public class ContentServiceImpl implements ContentService{
 					
 					Program p = programDao.find(programId);
 					String title = p.getTitle();
+					String sortSn = (cp.getSortSn() != null ? cp.getSortSn().toString() : null ) ;
 					
 					ContentProgramDto contentProgramDto = new ContentProgramDto();
 					contentProgramDto.setProgramId(programId);
 					contentProgramDto.setTitle(title);
+					contentProgramDto.setSortSn(sortSn);
 					
 					Filter[] imageMetaFilters = {
 								Filter.equal("mappingId", programId), 
+								Filter.equal("subId", c.getContentId()) ,
 								Filter.equal("imageType", c.getContentType() )
 							};
 							// Filter("mappingId",programId);

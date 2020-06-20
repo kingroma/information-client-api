@@ -95,4 +95,13 @@ public class DomainUtil {
 		
 		return sb.toString();
 	}
+	
+	private static Random r = new Random();
+	public static int random(int size) {
+		return r.nextInt(size);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(getUUID(20));
+	}
 }

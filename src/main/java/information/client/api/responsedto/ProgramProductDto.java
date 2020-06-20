@@ -1,5 +1,7 @@
 package information.client.api.responsedto;
 
+import java.util.List;
+
 public class ProgramProductDto {
 	private String programId ; 
 	
@@ -12,6 +14,10 @@ public class ProgramProductDto {
 	private String season ; 
 	
 	private String episode ; 
+	
+	private String useAt ;
+	
+	private List<ImageMetaDto> imageMeta ;
 	
 	public String getProgramId() {
 		return programId;
@@ -59,6 +65,22 @@ public class ProgramProductDto {
 
 	public void setEpisode(String episode) {
 		this.episode = episode;
+	}
+
+	public String getUseAt() {
+		return useAt;
+	}
+
+	public void setUseAt(String useAt) {
+		this.useAt = useAt;
+	}
+
+	public List<ImageMetaDto> getImageMeta() {
+		return imageMeta;
+	}
+
+	public void setImageMeta(List<ImageMetaDto> imageMeta) {
+		this.imageMeta = imageMeta;
 	} 
 	
 	

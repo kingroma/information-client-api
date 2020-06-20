@@ -10,6 +10,8 @@ public class ProgramDto {
 	private String synopsis ;
 	
 	private String programType ;
+	
+	private String useAt ;
 
 	private List<String> genres ; 
 	
@@ -71,6 +73,14 @@ public class ProgramDto {
 
 	public void setImageMeta(List<ProgramImageMetaDto> imageMeta) {
 		this.imageMeta = imageMeta;
+	}
+
+	public String getUseAt() {
+		return useAt;
+	}
+
+	public void setUseAt(String useAt) {
+		this.useAt = useAt;
 	}
 
 	

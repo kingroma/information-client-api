@@ -14,6 +14,7 @@ DROP TABLE T_IMAGE_META ;
 CREATE TABLE T_IMAGE_META (
 	IMAGE_ID VARCHAR(30) PRIMARY KEY, 
 	MAPPING_ID VARCHAR(30) ,
+	SUB_ID VARCHAR(30) ,
 	IMAGE_TYPE VARCHAR(100) , 
 	REGIST_DATE TIMESTAMP , 
 	UPDATE_DATE TIMESTAMP
@@ -32,6 +33,9 @@ public class ImageMeta implements Serializable{
 	
 	@Column(name = "mapping_id")
 	private String mappingId ;
+	
+	@Column(name = "sub_id")
+	private String subId ;
 	
 	@Column(name = "image_type")
 	private String imageType ; 
@@ -81,6 +85,14 @@ public class ImageMeta implements Serializable{
 
 	public void setImageType(String imageType) {
 		this.imageType = imageType;
+	}
+
+	public String getSubId() {
+		return subId;
+	}
+
+	public void setSubId(String subId) {
+		this.subId = subId;
 	}
 	
 }

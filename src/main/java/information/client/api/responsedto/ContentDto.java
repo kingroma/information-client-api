@@ -13,6 +13,10 @@ public class ContentDto {
 	
 	private List<ContentProgramDto> list;
 
+	private String useAt = null ; 
+	
+	private String sortSn = null ; 
+	
 	public String getContentId() {
 		return contentId;
 	}
@@ -43,7 +47,22 @@ public class ContentDto {
 
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
+	}
+
+	public String getUseAt() {
+		return useAt;
+	}
+
+	public void setUseAt(String useAt) {
+		this.useAt = useAt;
+	}
+
+	public String getSortSn() {
+		return sortSn;
+	}
+
+	public void setSortSn(String sortSn) {
+		this.sortSn = sortSn;
 	} 
-	
 	
 }
